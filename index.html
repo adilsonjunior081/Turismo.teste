@@ -10,17 +10,17 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://visitegravata.com.br/">
+    <meta property="og:url" content="https://visite-gravata.vercel.app/">
     <meta property="og:title" content="Visite Gravatá - A Suíça Pernambucana">
     <meta property="og:description" content="Descubra Gravatá: clima ameno, gastronomia premiada, aventuras emocionantes e uma hospitalidade única. Venha viver experiências inesquecíveis na Suíça Pernambucana! 🌲✨">
-    <meta property="og:image" content="Logovisite.png">
+    <meta property="og:image" content="https://visite-gravata.vercel.app/Logovisite.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://visitegravata.com.br/">
+    <meta property="twitter:url" content="https://visite-gravata.vercel.app/">
     <meta property="twitter:title" content="Visite Gravatá - A Suíça Pernambucana">
     <meta property="twitter:description" content="Descubra Gravatá: clima ameno, gastronomia premiada, aventuras emocionantes e uma hospitalidade única. Venha viver experiências inesquecíveis na Suíça Pernambucana! 🌲✨">
-    <meta property="twitter:image" content="Logovisite.png">
+    <meta property="twitter:image" content="https://visite-gravata.vercel.app/Logovisite.png">
     
     <!-- WhatsApp -->
     <meta property="og:site_name" content="Visite Gravatá">
@@ -91,14 +91,14 @@
 
         /* Estilos para os cards de eventos */
         .evento-card {
-            width: 200px;
-            height: 200px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             overflow: hidden;
             position: relative;
             transition: all 0.3s ease;
             cursor: pointer;
-            margin: 1rem;
+            margin: 1rem auto;
         }
 
         .evento-card:hover {
@@ -141,11 +141,11 @@
         }
 
         .eventos-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            padding: 2rem 0;
+            padding: 2rem;
+            justify-items: center;
         }
 
         /* Estilos do Modal */
@@ -362,6 +362,32 @@
             
             .slide {
                 background-position: center center;
+            }
+            
+            .evento-card {
+                width: 340px;
+                height: 340px;
+            }
+            
+            .eventos-container {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+                gap: 2.5rem;
+            }
+            
+            .evento-overlay {
+                transform: translateY(0);
+                background: linear-gradient(to top, rgba(121, 85, 72, 0.9) 20%, transparent);
+                padding: 1.5rem;
+            }
+            
+            .evento-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .evento-overlay p {
+                font-size: 1.2rem;
             }
         }
     </style>
