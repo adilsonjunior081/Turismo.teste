@@ -1,0 +1,1592 @@
+/* 
+ * Visite Gravatá - Estilos principais
+ * Arquivo combinado de styles.css e styles-clean.css
+ */
+
+/* Variáveis de cores */
+:root {
+    --verde: #4CAF50;
+    --verde-dark: #388E3C;
+    --verde-light: #C8E6C9;
+    --vermelho: #E03C31;
+    --vermelho-light: #FFCDD2;
+    --marrom: #795548;
+    --marrom-800: #4e342e;
+    --amarelo: #FAB70D;
+    --amarelo-escuro: #F39C12;
+    --amarelo-light: #FFF9C4;
+    --laranja: #FF9800;
+    --laranja-escuro: #E65100;
+    --laranja-light: #FFE0B2;
+    --azul: #2196F3;
+    --azul-light: #BBDEFB;
+    --teal: #36BED9;
+    --brown: #7A4C1D;
+    --roxo: #9C368E;
+    --cinza-claro: #f8f9fa;
+    --cinza-medio: #e9ecef;
+}
+
+/* Classes de cor de texto */
+.text-verde { color: var(--verde); }
+.text-vermelho { color: var(--vermelho); }
+.text-marrom { color: var(--marrom); }
+.text-amarelo { color: var(--amarelo); }
+.text-amarelo-escuro { color: var(--amarelo-escuro); }
+.text-teal-500 { color: var(--teal); }
+.text-brown-500 { color: var(--brown); }
+.text-roxo { color: var(--roxo); }
+.text-laranja { color: var(--laranja) !important; }
+
+/* Classes de cor de fundo */
+.bg-verde { background-color: var(--verde); }
+.bg-vermelho { background-color: var(--vermelho); }
+.bg-marrom { background-color: var(--marrom); }
+.bg-amarelo { background-color: var(--amarelo); }
+.bg-laranja { background-color: var(--laranja); }
+
+/* Estilos gerais */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #4b3621;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* Logo colorida e variações */
+.logo-colorida {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* Logo horizontal */
+.logo-horizontal {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    position: relative;
+}
+
+.logo-visite {
+    font-family: 'Dancing Script', 'Satisfy', 'Brush Script MT', 'Bradley Hand', cursive;
+    color: var(--marrom);
+    font-size: 3rem;
+    font-style: italic;
+    margin-right: 8px;
+    transform: translateY(2px) rotate(-5deg);
+    font-weight: 500;
+}
+
+/* Logo vertical */
+.logo-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 0.9;
+}
+
+.logo-top {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo-middle {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.logo-bottom {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Estrela decorativa */
+.logo-horizontal::after {
+    content: "★";
+    color: var(--amarelo);
+    font-size: 1rem;
+    margin-left: 2px;
+    display: inline-block;
+    transform: translateY(-15px);
+}
+
+/* Ajuste para logo no rodapé */
+footer .logo-horizontal {
+    font-size: 2rem;
+    justify-content: flex-start;
+}
+
+footer .logo-visite {
+    color: white;
+}
+
+/* Menu principal desktop com redes sociais centralizadas */
+.main-menu {
+    height: 50px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Redes sociais no centro */
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste específico para o ícone do Facebook */
+.social-links a i.fa-facebook-f {
+    position: relative;
+    left: 1px;
+}
+
+/* Ajuste específico para o ícone do Twitter */
+.social-links a i.fa-twitter {
+    position: relative;
+}
+
+/* Garantir que o ícone do Twitter apareça */
+.fa-twitter,
+.fab.fa-twitter {
+    font-size: 1rem;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+/* Menu principal desktop */
+.main-menu {
+    display: flex;
+    height: 50px;
+    padding: 0 1rem;
+    align-items: center;
+}
+
+.menu-links {
+    display: flex;
+    align-items: center;
+}
+
+.menu-links a {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    transition: color 0.3s;
+}
+
+.menu-links a:first-child {
+    padding-left: 0;
+}
+
+.menu-links a:hover {
+    color: var(--amarelo);
+}
+
+.menu-divider {
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0 0.25rem;
+}
+
+/* Estilos de navegação */
+.nav-item {
+    position: relative;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--amarelo);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--amarelo);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.nav-divider {
+    color: rgba(255, 255, 255, 0.2);
+    padding: 0 0.5rem;
+    user-select: none;
+}
+
+.nav-item i {
+    margin-right: 0.25rem;
+}
+
+.nav-item:hover i {
+    color: var(--amarelo);
+}
+
+/* Ícones de redes sociais */
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-left: auto;
+}
+
+.social-icon {
+    color: white;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+    background-color: var(--amarelo);
+    color: var(--marrom);
+    transform: translateY(-3px);
+}
+
+.social-link-hover {
+    color: white;
+    opacity: 0.8;
+    margin: 0 0.75rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-link-hover:hover {
+    opacity: 1;
+    color: var(--amarelo);
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para ícones no footer */
+footer .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    transition: all 0.3s ease;
+    margin-right: 0;
+    margin-left: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* Container para ícones sociais no footer */
+footer .flex.space-x-4 {
+    display: flex;
+    gap: 12px !important;
+}
+
+footer .social-icon:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: var(--amarelo);
+}
+
+/* Ajuste para Facebook no footer */
+footer .social-icon i.fa-facebook-f {
+    position: relative;
+    left: 1px;
+}
+
+/* Títulos com sublinhado */
+.conhaca-title, .conheca-title {
+    position: relative;
+    color: var(--marrom);
+    margin-bottom: 4rem;
+    padding-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.title-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--vermelho), var(--laranja));
+    border-radius: 2px;
+}
+
+.title-underline::before,
+.title-underline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.title-underline::before {
+    right: calc(100% + 10px);
+}
+
+.title-underline::after {
+    left: calc(100% + 10px);
+}
+
+/* Estilos de seção */
+section {
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--verde), var(--amarelo), var(--vermelho), var(--laranja));
+    z-index: 1;
+}
+
+/* Estilos de cabeçalho de seção */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    color: var(--marrom);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Cards interativos */
+.interactive-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    border: 2px solid var(--marrom);
+    position: relative;
+}
+
+.interactive-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--marrom-800);
+}
+
+.interactive-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--verde), var(--amarelo));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.interactive-card:hover::after {
+    opacity: 1;
+}
+
+.card-image {
+    transition: all 0.7s ease;
+}
+
+.interactive-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.interactive-card .card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-weight: 700;
+    color: var(--marrom);
+}
+
+.interactive-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+/* Instagram */
+.instagram-text {
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#instagram {
+    background-color: var(--cinza-claro);
+    position: relative;
+}
+
+#instagram .conheca-title {
+    color: var(--marrom);
+}
+
+/* Menu móvel */
+.mobile-social-links {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-social-icon {
+    color: white;
+    opacity: 0.8;
+    margin: 0 0.5rem;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+}
+
+.mobile-social-icon:hover {
+    color: var(--amarelo);
+    opacity: 1;
+}
+
+/* Menu hamburger redesenhado mais moderno e tecnológico */
+.menu-toggle {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 210;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle span {
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.menu-toggle span:nth-child(1) {
+    transform: translateY(-8px);
+    width: 16px;
+    right: 13px;
+}
+
+.menu-toggle span:nth-child(2) {
+    transform: translateY(0);
+}
+
+.menu-toggle span:nth-child(3) {
+    transform: translateY(8px);
+    width: 16px;
+    left: 13px;
+}
+
+.menu-toggle:hover span:nth-child(1),
+.menu-toggle:hover span:nth-child(3) {
+    width: 24px;
+    left: auto;
+    right: auto;
+}
+
+.menu-toggle.active {
+    background: var(--vermelho);
+    box-shadow: 0 6px 15px rgba(224, 60, 49, 0.25);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(0);
+    width: 24px;
+    left: auto;
+    right: auto;
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(15px);
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(0);
+    width: 24px;
+    left: auto;
+    right: auto;
+}
+
+/* Corrigir a posição do menu mobile para que fique completamente fora da tela quando fechado */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 360px;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 248, 248, 0.95));
+    z-index: 1000;
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    visibility: visible;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+/* Botão de fechar redesenhado */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    border: none;
+    font-size: 1.2rem;
+    color: var(--marrom);
+    z-index: 1001;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.close-menu:hover {
+    transform: rotate(90deg) scale(1.1);
+    background-color: var(--vermelho);
+    color: white;
+    box-shadow: 0 5px 15px rgba(224, 60, 49, 0.25);
+}
+
+/* Estilo para os ícones do menu */
+@media (max-width: 768px) {
+    .menu-section ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 1.5rem;
+    }
+
+    .menu-section ul li a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+        border-radius: 18px;
+        background: white;
+        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        color: #555;
+        padding: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .menu-section ul li a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(145deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+        border-radius: 18px;
+        z-index: 0;
+    }
+    
+    .menu-section ul li a i {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    
+    .menu-section ul li a:hover,
+    .menu-section ul li a:active {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        border-radius: 24px;
+    }
+    
+    .menu-section ul li a:hover i,
+    .menu-section ul li a:active i {
+        transform: scale(1.2);
+    }
+    
+    /* Título de boas-vindas */
+    .nav-menu .text-center h3 {
+        background: linear-gradient(to right, var(--marrom), var(--laranja-escuro));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Overlay do menu */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Abas de conteúdo */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Formulários e botões */
+.btn-primary {
+    background-color: var(--verde);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input, select, textarea {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--verde);
+    box-shadow: 0 0 0 2px var(--verde-light);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .logo-colorida {
+        font-size: 1.5rem;
+    }
+    
+    .nav-divider {
+        display: none;
+    }
+    
+    .nav-item {
+        padding: 0.5rem;
+    }
+    
+    .menu-divider {
+        display: none;
+    }
+    
+    .menu-section ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 10px 5px;
+        margin-bottom: 15px;
+        justify-items: center;
+        width: 100%;
+    }
+    
+    .menu-section ul li {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .menu-section ul li a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        color: #555;
+        padding: 0;
+    }
+    
+    .menu-section ul li a:hover,
+    .menu-section ul li a:active {
+        transform: translateY(-5px);
+        background-color: white;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-section ul li a i {
+        margin: 0;
+    }
+    
+    .menu-section {
+        width: 100%;
+        margin-bottom: 1rem;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Remover títulos das seções */
+    .menu-section-title {
+        display: none !important;
+    }
+    
+    /* Ajustar botão de fechar menu */
+    .close-menu {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--marrom);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 1.2rem;
+        color: white;
+        z-index: 1001;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .close-menu:hover {
+        transform: rotate(90deg);
+        background-color: var(--vermelho);
+    }
+    
+    /* Ajustar tamanho e estilo do menu toggle */
+    .menu-toggle {
+        width: 45px;
+        height: 45px;
+        margin-left: 1rem;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        padding: 10px;
+        z-index: 210;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .menu-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Adicionar tooltips para os ícones */
+    .menu-section ul li a::after {
+        content: attr(title);
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+    
+    .menu-section ul li a:hover::after {
+        opacity: 1;
+        visibility: visible;
+        bottom: -30px;
+    }
+    
+    /* Melhorar a aparência dos ícones de redes sociais no menu mobile */
+    .menu-section:last-child {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-section:last-child .social-icon {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        font-size: 1.2rem;
+        margin: 0 5px;
+    }
+    
+    .menu-section:last-child .social-icon:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Cores mais vibrantes para os ícones */
+    .menu-section:nth-child(1) ul li:nth-child(1) a i { color: var(--verde); }
+    .menu-section:nth-child(1) ul li:nth-child(2) a i { color: var(--vermelho); }
+    .menu-section:nth-child(1) ul li:nth-child(3) a i { color: var(--amarelo); }
+    .menu-section:nth-child(1) ul li:nth-child(4) a i { color: var(--azul); }
+    .menu-section:nth-child(1) ul li:nth-child(5) a i { color: var(--laranja); }
+    .menu-section:nth-child(1) ul li:nth-child(6) a i { color: var(--verde-dark); }
+    .menu-section:nth-child(1) ul li:nth-child(7) a i { color: var(--vermelho-light); }
+    .menu-section:nth-child(1) ul li:nth-child(8) a i { color: var(--marrom); }
+    
+    .menu-section:nth-child(2) ul li:nth-child(1) a i { color: var(--teal); }
+    .menu-section:nth-child(2) ul li:nth-child(2) a i { color: var(--roxo); }
+    .menu-section:nth-child(2) ul li:nth-child(3) a i { color: var(--amarelo-escuro); }
+    .menu-section:nth-child(2) ul li:nth-child(4) a i { color: var(--verde-light); }
+    .menu-section:nth-child(2) ul li:nth-child(5) a i { color: var(--vermelho); }
+    .menu-section:nth-child(2) ul li:nth-child(6) a i { color: var(--laranja-escuro); }
+    .menu-section:nth-child(2) ul li:nth-child(7) a i { color: var(--azul); }
+    .menu-section:nth-child(2) ul li:nth-child(8) a i { color: var(--marrom); }
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 360px) {
+    .menu-section ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .menu-section ul li a {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+    }
+}
+
+/* Ajustes de contêiner e outros elementos para responsividade */
+.container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Componentes da página de serviços */
+.servico-card {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: 1px solid #795548;
+}
+
+.servico-card:hover {
+    border-radius: 24px;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.servico-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.servico-title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+/* Estilo para o ícone do X (Twitter) */
+.x-icon {
+    display: none;
+}
+
+/* Espaçamento consistente nos ícones de redes sociais */
+.social-link-hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-link-hover:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.mobile-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Tooltips e animações para o menu */
+.menu-tooltip {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.menu-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+}
+
+/* Animações para cartões e elementos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação para ícones do menu */
+@media (max-width: 768px) {
+    .menu-section ul li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    
+    /* Efeito de pulse para menu toggle */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .menu-toggle:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.2);
+        z-index: -1;
+        opacity: 0;
+        transform: scale(1.2);
+        animation: pulse 2s infinite;
+    }
+    
+    /* Refinamentos para o menu mobile */
+    .menu-section ul li a:active {
+        transform: scale(0.95);
+    }
+    
+    .nav-menu .text-center .w-20 {
+        transition: all 0.8s ease;
+        transform: scaleX(0);
+    }
+    
+    .nav-menu.active .text-center .w-20 {
+        transform: scaleX(1);
+    }
+    
+    /* Melhoria visual para quando menu está ativo */
+    body.menu-open {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .main-menu {
+        display: none !important;
+    }
+    
+    /* Exibir o toggler */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Organizar navegação mobile */
+    .nav-menu {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+@media (min-width: 1025px) {
+    /* Esconder o toggler em desktop */
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    /* Menu principal visível apenas em desktop */
+    .main-menu {
+        display: flex !important;
+    }
+}
+
+/* Barra colorida acima do footer (para todas as páginas) */
+.h-1.bg-gradient-to-r {
+    display: block !important;
+    width: 100% !important;
+    height: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-image: linear-gradient(to right, var(--verde), var(--amarelo), var(--vermelho), var(--laranja)) !important;
+}
+
+/* Estilo para links de redes sociais como texto */
+.social-link-text {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.social-link-text:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: var(--amarelo);
+    transform: translateY(-2px);
+}
+
+.social-text {
+    color: var(--marrom);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    background-color: rgba(121, 85, 72, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-text:hover {
+    background-color: var(--marrom);
+    color: white;
+}
+
+/* Estilos para menu mobile com texto */
+.menu-links-mobile {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.menu-mobile-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: var(--marrom);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.menu-mobile-item i {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: var(--marrom);
+    transition: all 0.3s ease;
+}
+
+.menu-mobile-item span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    line-height: 1.2;
+}
+
+.menu-mobile-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--marrom);
+    color: white;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-mobile-item:hover i {
+    color: white;
+    transform: scale(1.2);
+}
+
+/* Cores diferenciadas para os itens do menu */
+.menu-mobile-item:nth-child(1) i { color: var(--verde); }
+.menu-mobile-item:nth-child(2) i { color: var(--vermelho); }
+.menu-mobile-item:nth-child(3) i { color: var(--amarelo); }
+.menu-mobile-item:nth-child(4) i { color: var(--azul); }
+.menu-mobile-item:nth-child(5) i { color: var(--laranja); }
+.menu-mobile-item:nth-child(6) i { color: var(--verde-dark); }
+.menu-mobile-item:nth-child(7) i { color: var(--vermelho-light); }
+.menu-mobile-item:nth-child(8) i { color: var(--marrom); }
+
+.menu-mobile-item:nth-child(9) i { color: var(--teal); }
+.menu-mobile-item:nth-child(10) i { color: var(--roxo); }
+.menu-mobile-item:nth-child(11) i { color: var(--amarelo-escuro); }
+.menu-mobile-item:nth-child(12) i { color: var(--verde-light); }
+.menu-mobile-item:nth-child(13) i { color: var(--vermelho); }
+.menu-mobile-item:nth-child(14) i { color: var(--laranja-escuro); }
+.menu-mobile-item:nth-child(15) i { color: var(--azul); }
+.menu-mobile-item:nth-child(16) i { color: var(--marrom); }
+
+/* Media queries para menu responsivo */
+@media (max-width: 400px) {
+    .menu-links-mobile .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .menu-mobile-item {
+        padding: 10px 8px;
+    }
+    
+    .menu-mobile-item i {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+    
+    .menu-mobile-item span {
+        font-size: 0.7rem;
+    }
+}
+
+/* Espaço reservado para o lado direito do menu */
+.ml-auto {
+    margin-left: auto;
+    width: 120px;
+}
+
+/* Estilo para ícones móveis */
+.flex.items-center.space-x-3 {
+    gap: 12px !important;
+    display: flex;
+}
+
+.flex.items-center.space-x-3 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.flex.items-center.space-x-3 a:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Ajuste para o Facebook nos ícones móveis */
+.flex.items-center.space-x-3 a i.fa-facebook-f {
+    position: relative;
+    left: 1px;
+}
+
+/* Estilos para ícones sociais no mobile */
+.mobile-social-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-circle:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    color: var(--amarelo);
+}
+
+/* Ajuste para Facebook no circle */
+.social-circle i.fa-facebook-f {
+    position: relative;
+    left: 1px;
+}
+
+/* Footer social icons container */
+footer .footer-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px !important;
+    margin-top: 8px;
+}
+
+/* Padronização de ícones sociais para todo o site */
+.footer-social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.footer-social-icons .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    aspect-ratio: 1/1; /* Forçar proporção 1:1 para ser perfeitamente redondo */
+}
+
+.footer-social-icons .social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Cores específicas para cada ícone social */
+.social-icon.facebook-icon {
+    background-color: #1877F2;
+}
+
+.social-icon.twitter-icon {
+    background-color: #1DA1F2;
+}
+
+.social-icon.instagram-icon {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.youtube-icon {
+    background-color: #FF0000;
+}
+
+.social-icon:hover.facebook-icon {
+    background-color: #0d5dc4;
+}
+
+.social-icon:hover.twitter-icon {
+    background-color: #0c85d0;
+}
+
+.social-icon:hover.instagram-icon {
+    background: linear-gradient(45deg, #d87b17 0%, #c94f24 25%, #b91d31 50%, #a41950 75%, #98146c 100%);
+}
+
+.social-icon:hover.youtube-icon {
+    background-color: #cc0000;
+}
+
+/* Ajustes específicos para cada local */
+.social-links.footer-social-icons {
+    gap: 12px;
+}
+
+.social-links.footer-social-icons .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+}
+
+.mobile-social-links.footer-social-icons {
+    gap: 10px;
+}
+
+.mobile-social-links.footer-social-icons .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+}
+
+.menu-section .footer-social-icons .social-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/* Centralização do ícone do Facebook */
+.social-icon.facebook-icon i {
+    position: relative;
+    left: 1px;
+}
+
+/* Estilos específicos para o header principal (barra marrom) */
+.bg-marrom .social-links.footer-social-icons .social-icon.facebook-icon {
+    background-color: #1877F2;
+}
+
+.bg-marrom .social-links.footer-social-icons .social-icon.twitter-icon {
+    background-color: #1DA1F2;
+}
+
+.bg-marrom .social-links.footer-social-icons .social-icon.instagram-icon {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.bg-marrom .social-links.footer-social-icons .social-icon.youtube-icon {
+    background-color: #FF0000;
+}
+
+.bg-marrom .social-links.footer-social-icons .social-icon:hover.facebook-icon {
+    background-color: #0d5dc4;
+}
+
+.bg-marrom .social-links.footer-social-icons .social-icon:hover.twitter-icon {
+    background-color: #0c85d0;
+}
+
+.bg-marrom .social-links.footer-social-icons .social-icon:hover.instagram-icon {
+    background: linear-gradient(45deg, #d87b17 0%, #c94f24 25%, #b91d31 50%, #a41950 75%, #98146c 100%);
+}
+
+.bg-marrom .social-links.footer-social-icons .social-icon:hover.youtube-icon {
+    background-color: #cc0000;
+}
+
+/* Garantir que os ícones do header tenham sombra para destacar */
+.bg-marrom .social-links.footer-social-icons .social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    aspect-ratio: 1/1;
+} 
