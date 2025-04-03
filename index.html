@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visite Gravatá - Guia turístico oficial da cidade de Gravatá, Pernambuco. Encontre informações sobre hotéis, restaurantes, pontos turísticos e eventos.">
+    <meta name="keywords" content="Gravatá, turismo, Pernambuco, hotéis, restaurantes, eventos, viagem">
+    <meta name="author" content="Secretaria de Turismo de Gravatá">
+    <meta name="theme-color" content="#795548">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://visitegravata.com.br/">
+    <meta property="og:title" content="Visite Gravatá - A Suíça Pernambucana">
+    <meta property="og:description" content="Descubra Gravatá: clima ameno, gastronomia premiada, aventuras emocionantes e uma hospitalidade única. Venha viver experiências inesquecíveis na Suíça Pernambucana! 🌲✨">
+    <meta property="og:image" content="Logovisite.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://visitegravata.com.br/">
+    <meta property="twitter:title" content="Visite Gravatá - A Suíça Pernambucana">
+    <meta property="twitter:description" content="Descubra Gravatá: clima ameno, gastronomia premiada, aventuras emocionantes e uma hospitalidade única. Venha viver experiências inesquecíveis na Suíça Pernambucana! 🌲✨">
+    <meta property="twitter:image" content="Logovisite.png">
+    
+    <!-- WhatsApp -->
+    <meta property="og:site_name" content="Visite Gravatá">
+    <meta property="og:locale" content="pt_BR">
+    
+    <title>Visite Gravatá - Guia Turístico Oficial</title>
+    <link rel="icon" href="https://www.gravata.pe.gov.br/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Dancing+Script&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Schema para Destino Turístico -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristDestination",
+      "name": "Gravatá",
+      "description": "Gravatá, conhecida como a Suíça Pernambucana, é uma cidade serrana localizada no estado de Pernambuco, famosa por seu clima ameno, gastronomia de alta qualidade e festividades tradicionais.",
+      "url": "https://visitegravata.com.br",
+      "touristType": ["Family vacation", "Couples", "Culinary", "Culture", "Adventure"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -8.2130616,
+        "longitude": -35.5659977
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR",
+        "addressRegion": "Pernambuco",
+        "addressLocality": "Gravatá",
+        "postalCode": "55640-000"
+      }
+    }
+    </script>
+
+    <style>
+        .servico-card {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border: 1px solid #795548;
+        }
+        
+        .servico-card:hover {
+            border-radius: 24px;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .servico-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .servico-title {
+            font-weight: bold;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        /* Estilos para os cards de eventos */
+        .evento-card {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 1rem;
+        }
+
+        .evento-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .evento-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .evento-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .evento-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(121, 85, 72, 0.9), transparent);
+            padding: 1rem;
+            color: white;
+            text-align: center;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .evento-card:hover .evento-overlay {
+            transform: translateY(0);
+        }
+
+        .evento-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .eventos-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        /* Estilos do Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            padding: 0;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow: hidden;
+            z-index: 10000;
+            animation: scaleIn 0.3s ease-in-out;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(121, 85, 72, 0.9);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.2rem;
+            z-index: 10001;
+        }
+
+        .modal-close:hover {
+            background-color: #5d4037;
+            transform: scale(1.1);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0;
+        }
+
+        .modal-buttons {
+            position: absolute;
+            bottom: 120px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 10001;
+        }
+
+        .modal-button {
+            background-color: rgba(40, 167, 69, 0.95);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .modal-button:hover {
+            background-color: rgba(40, 167, 69, 1);
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { 
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0;
+            }
+            to { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Adicionar antes dos outros estilos */
+        .header-banner {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+        }
+
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .banner-text {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .scroll-indicator i {
+            color: white;
+            font-size: 24px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
+        @media (max-width: 768px) {
+            .header-banner {
+                height: 400px;
+            }
+            
+            .slide {
+                background-position: center center;
+            }
+        }
+    </style>
+</head>
+<body class="menu-open-ready" class="font-sans bg-white">
+    <!-- Modal de Anúncio -->
+    <div id="anuncioModal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="https://gravata.pe.gov.br/wp-content/uploads/2025/03/c6518513-a75a-47ff-80bf-6ec5c47370cc-768x960.jpeg" 
+                 alt="Semana Santa em Gravatá" 
+                 class="modal-image">
+        </div>
+    </div>
+
+    <!-- Substituir o header existente por este novo -->
+    <header class="header-banner">
+        <div class="slideshow">
+            <div class="slide active" style="background-image: url('https://diariogravata.com.br/wp-content/uploads/2023/05/Gravata-1.jpg')"></div>
+            <div class="slide" style="background-image: url('https://s2-g1.glbimg.com/SEimNJahpHxwMbQOkjXIhy9QXwU=/0x0:1024x768/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/w/4/QGlhLvSZqQSQNPLP30Ig/polo.jpg')"></div>
+            <div class="slide" style="background-image: url('https://scontent.frec30-1.fna.fbcdn.net/v/t1.6435-9/93142694_2588488798095970_7373709375438848000_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=101&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=-3dyYh20AiQQ7kNvwGAB2tB&_nc_oc=AdkKpxS6dNi0ShVFd99A3t4KG_hxJxx4_RoqFSRxnbKWvKjgmNR3wv2SrxXyDEaZnao&_nc_zt=23&_nc_ht=scontent.frec30-1.fna&_nc_gid=GmrebuRAUEWHteQjLY2_YA&oh=00_AYGzjECImZTAiL1EKqSDJDXo39MMSrFQumhkjmbnHyuPug&oe=6816892E')"></div>
+            <div class="slide" style="background-image: url('https://diariogravata.com.br/wp-content/uploads/2022/03/Predio-Prefeitura.jpg')"></div>
+        </div>
+        
+        <div class="banner-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo-horizontal">
+                    <span class="logo-visite text-white" style="display: inline-block; margin-right: 5px; font-family: 'Dancing Script', cursive; font-size: 3.5rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">visite</span>
+                    <span class="text-teal-500" style="font-size: 3rem;">G</span><span class="text-vermelho" style="font-size: 3rem;">R</span><span class="text-amarelo" style="font-size: 3rem;">A</span><span class="text-laranja" style="font-size: 3rem;">V</span><span class="text-white" style="font-size: 3rem;">A</span><span class="text-teal-500" style="font-size: 3rem;">T</span><span class="text-vermelho" style="font-size: 3rem;">Á</span>
+                </a>
+            </div>
+            <p class="banner-text">Descubra a Suíça Pernambucana</p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de navegação principal -->
+    <nav class="bg-marrom text-white" aria-label="Navegação principal">
+        <div class="container mx-auto">
+            <div class="main-menu hidden lg:flex justify-between items-center">
+                <div class="menu-links flex items-center flex-1">
+                    <a href="#principais" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors">HOME</a>
+                    <span class="menu-divider">|</span>
+                    <a href="#servicos-turisticos" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors">SERVIÇOS</a>
+                    <span class="menu-divider">|</span>
+                    <a href="guias-turisticos.html" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors">GUIA DE TURISMO</a>
+                    <span class="menu-divider">|</span>
+                    <a href="download-aplicativo.html" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors whitespace-nowrap">DOWNLOAD APP</a>
+                    <span class="menu-divider">|</span>
+                    <a href="musicas-gravata.html" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors">MÚSICAS</a>
+                    <span class="menu-divider">|</span>
+                    <a href="#agencia-turismo" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors">AGÊNCIA DE TURISMO</a>
+                    <span class="menu-divider">|</span>
+                    <a href="eventos.html" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors">EVENTOS</a>
+                    <span class="menu-divider">|</span>
+                    <a href="#contato" class="text-white text-sm font-medium px-3 py-2 hover:text-amarelo transition-colors">CONTATO</a>
+                </div>
+            </div>
+            
+            <!-- Menu Mobile -->
+            <div class="lg:hidden flex justify-between items-center py-3 px-4">
+                <!-- Menu hamburger para mobile -->
+                <div class="flex items-center space-x-2">
+                    <!-- Menu Toggle Button -->
+                    <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                
+                <!-- Ícones de redes sociais no mobile -->
+                <div class="flex items-center mobile-social-links">
+                    <a href="https://www.facebook.com/PrefeituraGravata/?locale=pt_BR" target="_blank" aria-label="Facebook" class="social-circle"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://x.com/prefdegravata" target="_blank" aria-label="X" class="social-circle"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/visitegravata/" target="_blank" aria-label="Instagram" class="social-circle"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/channel/UCHgNoiaG9QTaAmJDRkOMnFw" target="_blank" aria-label="YouTube" class="social-circle"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile Overlay -->
+    <div class="menu-overlay"></div>
+
+    <!-- Menu Mobile -->
+    <div class="nav-menu">
+        <button class="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="text-center mt-4 mb-6">
+            <h3 class="text-xl font-bold text-marrom">Bem-vindo a Gravatá!</h3>
+            <p class="text-sm text-gray-600">A Suíça Pernambucana</p>
+        </div>
+        
+        <div class="menu-section mt-4">
+            <div class="w-full h-full mx-auto">
+                <div class="grid grid-cols-1 gap-2 p-4">
+                    <a href="#" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-home text-marrom mr-3"></i>
+                        <span class="text-marrom font-medium">Home</span>
+                    </a>
+                    <a href="a-cidade.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-city text-teal-500 mr-3"></i>
+                        <span class="text-marrom font-medium">A Cidade</span>
+                    </a>
+                    <a href="o-que-fazer.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-map-marked-alt text-vermelho mr-3"></i>
+                        <span class="text-marrom font-medium">O que Fazer</span>
+                    </a>
+                    <a href="onde-ficar.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-bed text-laranja mr-3"></i>
+                        <span class="text-marrom font-medium">Onde Ficar</span>
+                    </a>
+                    <a href="onde-beber-comer.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-utensils text-amarelo mr-3"></i>
+                        <span class="text-marrom font-medium">Gastronomia</span>
+                    </a>
+                    <a href="eventos.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-calendar-alt text-teal-500 mr-3"></i>
+                        <span class="text-marrom font-medium">Eventos</span>
+                    </a>
+                    <a href="#agencia-turismo" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-map text-vermelho mr-3"></i>
+                        <span class="text-marrom font-medium">Agência de Turismo</span>
+                    </a>
+                    <a href="guias-turisticos.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-user-tie text-laranja mr-3"></i>
+                        <span class="text-marrom font-medium">Guias Turísticos</span>
+                    </a>
+                    <a href="saude.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-hospital text-teal-500 mr-3"></i>
+                        <span class="text-marrom font-medium">Saúde</span>
+                    </a>
+                    <a href="instituicoes-financeiras.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-university text-amarelo mr-3"></i>
+                        <span class="text-marrom font-medium">Bancos</span>
+                    </a>
+                    <a href="rodoviaria.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-bus text-vermelho mr-3"></i>
+                        <span class="text-marrom font-medium">Rodoviária</span>
+                    </a>
+                    <a href="secretaria-turismo.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-landmark text-laranja mr-3"></i>
+                        <span class="text-marrom font-medium">Sec. de Turismo</span>
+                    </a>
+                    <a href="centro-informacao-turistica.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-info-circle text-teal-500 mr-3"></i>
+                        <span class="text-marrom font-medium">Centro de Informação</span>
+                    </a>
+                    <a href="musicas-gravata.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-music text-amarelo mr-3"></i>
+                        <span class="text-marrom font-medium">Músicas</span>
+                    </a>
+                    <a href="download-aplicativo.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-mobile-alt text-vermelho mr-3"></i>
+                        <span class="text-marrom font-medium">App</span>
+                    </a>
+                    <a href="informacoes.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-all">
+                        <i class="fas fa-info text-laranja mr-3"></i>
+                        <span class="text-marrom font-medium">Informações</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="menu-section mt-6">
+            <h4 class="font-semibold text-gray-800 mb-2 text-lg px-4">Redes Sociais</h4>
+            <div class="flex justify-center footer-social-icons mt-2">
+                <a href="https://www.facebook.com/PrefeituraGravata/?locale=pt_BR" target="_blank" aria-label="Facebook" class="social-icon facebook-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/prefdegravata" target="_blank" aria-label="X (Twitter)" class="social-icon twitter-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/visitegravata/" target="_blank" aria-label="Instagram" class="social-icon instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCHgNoiaG9QTaAmJDRkOMnFw" target="_blank" aria-label="YouTube" class="social-icon youtube-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="menu-section mt-6">
+            <h4 class="font-semibold text-gray-800 mb-2 text-lg px-4">Contato</h4>
+            <div class="flex flex-col space-y-3 mt-2 px-4">
+                <a href="tel:+558135639000" class="flex items-center text-gray-700 hover:text-marrom">
+                    <i class="fas fa-phone-alt mr-3 text-marrom"></i>
+                    <span>(81) 3563-9000</span>
+                </a>
+                <a href="mailto:turismo@gravata.pe.gov.br" class="flex items-center text-gray-700 hover:text-marrom">
+                    <i class="fas fa-envelope mr-3 text-marrom"></i>
+                    <span>turismo@gravata.pe.gov.br</span>
+                </a>
+                <a href="#" class="flex items-center text-gray-700 hover:text-marrom">
+                    <i class="fas fa-map-marker-alt mr-3 text-marrom"></i>
+                    <span>Prefeitura de Gravatá, PE</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conheça Gravatá Section -->
+    <section id="principais" class="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-center mb-16 text-marrom relative conhaca-title mx-auto" id="conheca_title">
+                CONHEÇA GRAVATÁ
+                <div class="title-underline"></div>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Card 1: A Cidade -->
+                <div class="interactive-card relative overflow-hidden cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl" onclick="location.href='a-cidade.html'">
+                    <div class="h-96 relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/BRUNO_LIMA_IGREJA_MATRIZ_DE_SANTANA_GRAVAT%C3%81_PE.jpg" alt="A Cidade" class="card-image w-full h-full object-cover transition-all duration-500 transform hover:scale-110">
+                        <div class="overlay">
+                            <h3 class="card-title text-marrom">A CIDADE</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Onde ir e o que fazer -->
+                <div class="interactive-card relative overflow-hidden cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl" onclick="location.href='o-que-fazer.html'">
+                    <div class="h-96 relative">
+                        <img src="https://static.wixstatic.com/media/a8d0ef_8eea5f0ee1c8489aba7602d69fddb445~mv2.jpeg" alt="O Que Fazer" class="card-image w-full h-full object-cover transition-all duration-500 transform hover:scale-110">
+                        <div class="overlay">
+                            <h3 class="card-title text-marrom">O QUE FAZER</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Onde ficar -->
+                <div class="interactive-card relative overflow-hidden cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl" onclick="location.href='onde-ficar.html'">
+                    <div class="h-96 relative">
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9b/6e/fd/hoteis-canarius-de-gravata.jpg?w=1200&h=-1&s=1" alt="Onde Ficar" class="card-image w-full h-full object-cover transition-all duration-500 transform hover:scale-110">
+                        <div class="overlay">
+                            <h3 class="card-title">ONDE FICAR</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4: Onde comer e beber -->
+                <div class="interactive-card relative overflow-hidden cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-xl" onclick="location.href='onde-beber-comer.html'">
+                    <div class="h-96 relative">
+                        <img src="https://hotelcanarius.com.br/gravata/wp-content/uploads/2019/10/restaurante-2.jpg" alt="Gastronomia" class="card-image w-full h-full object-cover transition-all duration-500 transform hover:scale-110">
+                        <div class="overlay">
+                            <h3 class="card-title">ONDE COMER</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Serviços -->
+    <section id="servicos-turisticos" class="py-16 custom-content">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-16 relative conheca-title" id="servicos_title">
+                SERVIÇOS
+                <div class="title-underline bg-white"></div>
+            </h2>
+            
+            <!-- Grid de Serviços -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+                <!-- Serviço 1: Rodoviária -->
+                <a href="rodoviaria.html" class="block">
+                    <div class="servico-card bg-white shadow-lg">
+                        <div class="servico-icon text-verde">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h3 class="servico-title text-gray-800 uppercase">RODOVIÁRIA</h3>
+                    </div>
+                </a>
+
+                <!-- Serviço 2: Instituições Financeiras -->
+                <a href="instituicoes-financeiras.html" class="block">
+                    <div class="servico-card bg-white shadow-lg">
+                        <div class="servico-icon text-vermelho">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="servico-title text-gray-800 uppercase">INSTITUIÇÕES FINANCEIRAS</h3>
+                    </div>
+                </a>
+
+                <!-- Serviço 3: Saúde -->
+                <a href="saude.html" class="block">
+                    <div class="servico-card bg-white shadow-lg">
+                        <div class="servico-icon text-amarelo">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3 class="servico-title text-gray-800 uppercase">SAÚDE</h3>
+                    </div>
+                </a>
+
+                <!-- Serviço 4: Secretaria de Turismo -->
+                <a href="secretaria-turismo.html" class="block">
+                    <div class="servico-card bg-white shadow-lg">
+                        <div class="servico-icon text-verde">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="servico-title text-gray-800 uppercase">SECRETARIA DE TURISMO</h3>
+                    </div>
+                </a>
+
+                <!-- Serviço 5: Centro de Informação Turística -->
+                <a href="centro-informacao-turistica.html" class="block">
+                    <div class="servico-card bg-white shadow-lg">
+                        <div class="servico-icon text-vermelho">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h3 class="servico-title text-gray-800 uppercase">CENTRO DE INFORMAÇÃO TURÍSTICA</h3>
+                    </div>
+                </a>
+
+                <!-- Serviço 6: Gravatá Digital -->
+                <a href="gravata-digital.html" class="block">
+                    <div class="servico-card bg-white shadow-lg">
+                        <div class="servico-icon text-verde">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3 class="servico-title text-gray-800 uppercase">GRAVATÁ DIGITAL</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Seção de Eventos -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-16 text-center text-marrom relative">
+                Eventos em Gravatá
+                <div class="title-underline"></div>
+            </h2>
+            
+            <div class="eventos-container">
+                <!-- Janeiro -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Festa de Reis">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Festa de Reis</h3>
+                        <p>Janeiro</p>
+                    </div>
+                </div>
+
+                <!-- Março/Abril -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Semana Santa">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Semana Santa</h3>
+                        <p>Março/Abril</p>
+                    </div>
+                </div>
+
+                <!-- Maio -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Festa do Trabalhador">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Festa do Trabalhador</h3>
+                        <p>Maio</p>
+                    </div>
+                </div>
+
+                <!-- Junho -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="São João de Gravatá">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">São João</h3>
+                        <p>Junho</p>
+                    </div>
+                </div>
+
+                <!-- Julho - Festival de Inverno -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Festival de Inverno">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Festival de Inverno</h3>
+                        <p>Julho</p>
+                    </div>
+                </div>
+
+                <!-- Julho - Jazz Festival -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Jazz Festival">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Jazz Festival</h3>
+                        <p>Julho</p>
+                    </div>
+                </div>
+
+                <!-- Setembro -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Desfile Cívico">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Desfile Cívico</h3>
+                        <p>Setembro</p>
+                    </div>
+                </div>
+
+                <!-- Outubro -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Outubro Rosa">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Outubro Rosa</h3>
+                        <p>Outubro</p>
+                    </div>
+                </div>
+
+                <!-- Novembro -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Viva Jesus">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Viva Jesus</h3>
+                        <p>Novembro</p>
+                    </div>
+                </div>
+
+                <!-- Dezembro -->
+                <div class="evento-card">
+                    <img src="https://www.diariodepernambuco.com.br/static/app/noticia_127983242361/2023/11/16/941899/20231116113707208942o.webp" alt="Natal de Gravatá">
+                    <div class="evento-overlay">
+                        <h3 class="evento-title">Natal Luz</h3>
+                        <p>Dezembro</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Ver Todos os Eventos -->
+            <div class="text-center mt-12">
+                <a href="eventos.html" class="inline-block bg-marrom hover:bg-marrom-escuro text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Ver Todos os Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Agência de Turismo -->
+    <section id="agencia-turismo" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-marrom text-center mb-12">Agência de Turismo</h2>
+            
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <!-- Coluna da Imagem -->
+                    <div class="relative h-[400px] md:h-full">
+                        <img src="https://scontent.frec30-1.fna.fbcdn.net/v/t39.30808-6/476232803_936292028694526_4135800231391925940_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=JsdHXF_GYRQQ7kNvwEZqiz8&_nc_oc=Adm8rnj7Gfk20YX49NRjNze2RhiQsN7YnclnSPeJiuYrayCcUp9Bu4o6pKJF99QQGdI&_nc_zt=23&_nc_ht=scontent.frec30-1.fna&_nc_gid=oEszjCdekeLgBScC477XBQ&oh=00_AYHgh2EQdMTDVgQpm8ielWAaB8X8iDt0M_4tUusNEt29LA&oe=67F4E40F" 
+                            alt="Radical Aventura" 
+                            class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Coluna das Informações -->
+                    <div class="p-8 bg-white flex flex-col justify-center">
+                        <h3 class="text-3xl font-bold text-marrom mb-4">Radical Aventura</h3>
+                        <p class="text-lg mb-6 text-gray-600">CADASTUR: 26.999.740/0001-77</p>
+                        
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-xl font-bold text-marrom mb-4">Nossos Serviços</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center text-lg">
+                                        <i class="fas fa-check-circle text-verde mr-3"></i>
+                                        <span class="text-gray-700">Passeios em Gravatá e Região</span>
+                                    </li>
+                                    <li class="flex items-center text-lg">
+                                        <i class="fas fa-check-circle text-verde mr-3"></i>
+                                        <span class="text-gray-700">Turismo de Aventura</span>
+                                    </li>
+                                    <li class="flex items-center text-lg">
+                                        <i class="fas fa-check-circle text-verde mr-3"></i>
+                                        <span class="text-gray-700">Transfer</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-bold text-marrom mb-4">Contato</h4>
+                                <div class="space-y-4">
+                                    <a href="tel:+5581998699621" class="flex items-center text-lg text-gray-700 hover:text-verde transition-colors">
+                                        <i class="fas fa-phone text-verde mr-3"></i>
+                                        (81) 99869-9621
+                                    </a>
+                                    <a href="https://instagram.com/radicalaventurape" target="_blank" class="flex items-center text-lg text-gray-700 hover:text-verde transition-colors">
+                                        <i class="fab fa-instagram text-verde mr-3"></i>
+                                        @radicalaventurape
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram -->
+    <section id="instagram" class="py-8 custom-content">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold relative conheca-title mb-4" id="instagram_title">
+                Compartilhe seus momentos
+                <div class="title-underline"></div>
+            </h2>
+            
+            <p class="instagram-text mb-8">
+                Use #VisiteGravatá nas suas fotos e compartilhe suas experiências incríveis em nossa cidade. 
+                Siga @visitegravata e descubra diariamente novos lugares, eventos e histórias encantadoras!
+            </p>
+            
+            <!-- Fotos do Instagram -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <!-- Foto 1 -->
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://gravata.pe.gov.br/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-06-at-11.47.51.jpeg" alt="Instagram Visite Gravatá" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 cursor-pointer">
+                </div>
+                
+                <!-- Foto 2 -->
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://turismo.b-cdn.net/wp-content/uploads/2022/01/Alto-do-Cruzeiro-em-Gravata-PE.jpg" alt="Alto do Cruzeiro em Gravatá" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 cursor-pointer">
+                </div>
+                
+                <!-- Foto 3 -->
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRggcFd4cy_mYPIjaHppOGw2pl63OdlC55OA&s" alt="Atrações em Gravatá" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 cursor-pointer">
+                </div>
+                
+                <!-- Foto 4 -->
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://turismo.b-cdn.net/wp-content/uploads/2022/01/Mercado-Cultural-de-Gravata.jpg" alt="Mercado Cultural de Gravatá" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110 cursor-pointer">
+                </div>
+            </div>
+            
+            <!-- Botão do Instagram -->
+            <a href="https://www.instagram.com/visitegravata" target="_blank" class="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-8 rounded-full mt-8 hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
+                <i class="fab fa-instagram mr-2"></i>
+                Siga-nos no Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-marrom text-white custom-content" id="contato">
+        <div class="container mx-auto px-4 py-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo e Info -->
+                <div>
+                    <div class="logo-horizontal mb-4 flex items-center">
+                        <span class="logo-visite text-white" style="display: inline-block; margin-right: 5px; font-family: 'Dancing Script', cursive; font-size: 3rem; font-weight: bold; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">visite</span>
+                        <span class="text-teal-500">G</span><span class="text-vermelho">R</span><span class="text-amarelo">A</span><span class="text-laranja">V</span><span class="text-white">A</span><span class="text-teal-500">T</span><span class="text-vermelho">Á</span>
+                    </div>
+                    <p class="mb-4">Guia Turístico Oficial da Cidade de Gravatá - PE</p>
+                    <div class="flex space-x-4 footer-social-icons">
+                        <a href="https://www.facebook.com/PrefeituraGravata/?locale=pt_BR" target="_blank" aria-label="Siga-nos no Facebook" class="social-icon facebook-icon" title="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://x.com/prefdegravata" target="_blank" aria-label="Siga-nos no X" class="social-icon twitter-icon" title="X"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/visitegravata/" target="_blank" aria-label="Siga-nos no Instagram" class="social-icon instagram-icon" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/channel/UCHgNoiaG9QTaAmJDRkOMnFw" target="_blank" aria-label="Acesse nosso canal no YouTube" class="social-icon youtube-icon" title="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Links Rápidos -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="a-cidade.html" class="text-gray-300 hover:text-white transition-colors">Sobre Gravatá</a></li>
+                        <li><a href="o-que-fazer.html" class="text-gray-300 hover:text-white transition-colors">Atrações Turísticas</a></li>
+                        <li><a href="#eventos" class="text-gray-300 hover:text-white transition-colors">Eventos</a></li>
+                        <li><a href="onde-ficar.html" class="text-gray-300 hover:text-white transition-colors">Hospedagem</a></li>
+                        <li><a href="onde-beber-comer.html" class="text-gray-300 hover:text-white transition-colors">Gastronomia</a></li>
+                        <li><a href="musicas-gravata.html" class="text-gray-300 hover:text-white transition-colors">Músicas de Gravatá</a></li>
+                        <li><a href="download-aplicativo.html" class="text-gray-300 hover:text-white transition-colors">Aplicativo Turístico</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contato -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contato</h3>
+                    <address class="not-italic">
+                    <ul class="space-y-2">
+                            <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i> <span>Prefeitura de Gravatá, PE</span></li>
+                            <li class="flex items-center"><i class="fas fa-phone mr-2" aria-hidden="true"></i> <a href="tel:+558135639000" class="text-gray-300 hover:text-white transition-colors"><span>(81) 3563-9000</span></a></li>
+                            <li class="flex items-center"><i class="fas fa-envelope mr-2" aria-hidden="true"></i> <a href="mailto:turismo@gravata.pe.gov.br" class="text-gray-300 hover:text-white transition-colors"><span>turismo@gravata.pe.gov.br</span></a></li>
+                    </ul>
+                    </address>
+                </div>
+                
+                <!-- Informações Úteis -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Informações Úteis</h3>
+                    <ul class="space-y-2">
+                        <li><a href="rodoviaria.html" class="text-gray-300 hover:text-white transition-colors">Rodoviária</a></li>
+                        <li><a href="instituicoes-financeiras.html" class="text-gray-300 hover:text-white transition-colors">Instituições Financeiras</a></li>
+                        <li><a href="saude.html" class="text-gray-300 hover:text-white transition-colors">Saúde</a></li>
+                        <li><a href="guias-turisticos.html" class="text-gray-300 hover:text-white transition-colors">Guias Turísticos</a></li>
+                        <li><a href="centro-informacao-turistica.html" class="text-gray-300 hover:text-white transition-colors">Centro de Informação</a></li>
+                        <li><a href="secretaria-turismo.html" class="text-gray-300 hover:text-white transition-colors">Secretaria de Turismo</a></li>
+                        <li><a href="informacoes.html" class="text-gray-300 hover:text-white transition-colors">Informações Gerais</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400">
+                <div class="flex justify-between items-center">
+                    <p class="text-sm">Todos direitos reservados a Impacto Telecom 2023</p>
+                    <p class="text-sm">Desenvolvido por Adilson Junior</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Adicionar evento de clique na seta
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        scrollIndicator.addEventListener('click', function() {
+            const navMenu = document.querySelector('nav');
+            navMenu.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Slideshow function
+        function slideShow() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000);
+        }
+
+        // Iniciar slideshow
+        slideShow();
+
+        // Mostrar o modal automaticamente
+        const modal = document.getElementById('anuncioModal');
+        const closeBtn = document.getElementById('closeModal');
+        
+        // Função para fechar o modal
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+        
+        // Mostrar o modal após um pequeno delay
+        setTimeout(() => {
+            modal.style.display = 'block';
+        }, 500);
+        
+        // Fechar ao clicar no botão X
+        closeBtn.addEventListener('click', closeModal);
+        
+        // Fechar ao clicar fora do modal
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Fechar ao pressionar ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Rolagem suave para todas as âncoras internas
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Fecha o menu mobile se estiver aberto
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        document.querySelector('.menu-overlay').classList.remove('active');
+                    }
+                    
+                    // Rola até a seção
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
